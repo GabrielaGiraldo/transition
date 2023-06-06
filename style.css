@@ -1,35 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
-    background-color: dimgrey;
+    background-color: blanchedalmond;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.contador {
+header{
+    background-color: indigo;
+    padding: 2em;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 75vh;
-    color: white;
 }
 
-span{
-    font-size: 5em;
+.click{
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 60px;
+    border: 1px solid;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 500;
+    transition: background-color .3s;
 }
 
-button{
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    padding: 10px 20px;
-    margin: 10px;
-    background-color: blanchedalmond;
-    text-transform: uppercase;
+.click:hover{
+    background-color: #fff;
+    color: #1e3c72;
 }
 
-input{
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    padding: 10px 20px;
-    margin: 10px;
-    background-color: blanchedalmond;
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    background-color: #111111bd;
+    bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+    --transform: translateY(-100vh);
+    --transition: transform .8s;
+    transition: opacity .6s .9s;
+}
+
+.modal--show{
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity .6s;
+    --transform: translateY(0);
+    --transition: transform .8s .8s;
+}
+
+.modal_container{
+    margin: auto;
+    width: 100%;
+    max-width: 600px;
+    max-width: 100%;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 3em 2.5em;
+    display: grid;
+    gap: 1em;
+    place-items: center;
+    grid-auto-columns: 100%;
+    transform: var(--transform);
+    transition: var(--transition);
+}
+
+.modal_titulo{
+    font-size: 2.5rem;
+}
+
+.modal_parrafo{
+    margin-bottom: 10px;
+}
+
+.modal_imagen{
+    width: 100%;
+    max-width: 300px;
+}
+
+.modal_close{
+    text-decoration: none;
+    color: #fff;
+    background-color: #50a4f2;
+    border: 1px solid;
+    padding: 1em 3em;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+}
+
+.modal_close.hover{
+    color: #50a4f2;
+    background-color: #fff;
 }
